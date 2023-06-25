@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+:root{
+    /*clr = color
+    regla = 30-60-10 con 1 sub 30 y 1 sub 60 (en tono claro o oscuro)*/
+    --clr-30: #253043f1; /*Calculadora*/
+    --clr-60: #bac9e533; /*Fondo*/
+    --clr-60-2: #bbb9dbe0; /*Letra*/
+    --clr-10-2: #1f3014b1; /*Letra en pantalla*/
+    --clr-10: #88a273d3; /*Pantalla*/
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--clr-30);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calculadora{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 350px;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    overflow: auto;
+}
+
+.titulo{
+    color: var(--clr-60-2);
+}
+
+.pantalla{
+    /*determinamos que la pantalla ocupara todas las filas podemos colocar 1 / 5, siendo 5 el maximo pero si no sabemos el maximo la ultima posicion es el -1*/
+    grid-column: 1 / -1;
+    background-color: var(--clr-10);
+    color: var(--clr-10-2);
+    padding: 1rem;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    text-align: end;
+    border-bottom: 2px solid #1b2b1140;
+    overflow:auto;
+}
+
+/* width */
+.pantalla::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+  /* Track */
+.pantalla::-webkit-scrollbar-track {
+    background: transparent;
+    box-shadow: inset 0 0 5px #dddddd;
+    border-radius: 4px;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+}
+
+  /* Handle */
+.pantalla::-webkit-scrollbar-thumb {
+    background: var(--clr-10-2);
+    border-radius: 4px;
+}
+
+.panel{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background-color: var(--clr-60);
+    padding: 1rem 1.5rem;
+    border-radius: .5rem;
+    gap: .8rem;
+}
+
+.btn{
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+    background-color: var(--clr-60-2);
+    padding: 3px;
+    border-bottom: 1px solid var(--clr-30);
+    color: var(--clr-30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: var(--clr-30);
+    color: var(--clr-60-2);
+    border-bottom: 1px solid var(--clr-30);
+}
+
+.extra p{
+    color: #c1cfe2;
+}
+
+.extra .btnH{
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    grid-column: 2;
+    width: 60px;
+    border-bottom: 1px solid var(--clr-30);
+    background-color: #374667ab;
+    color: #c1cfe2;
+    transition: 0.2s ease-in-out;
+
+}
+
+.btnH:hover{
+    background-color: #598dd0c6;
+    color: #282c31;
+    border-bottom: 1px solid var(--clr-30);
+}
+
+.panelH{
+    margin-top: 15px;
+    background-color: var(--clr-60);
+    padding: 1rem 1.5rem;
+    border-radius: .5rem;
+    gap: .8rem;
+}
+
+.panelH p{
+    color: var(--clr-60-2);
+}
+
+#cero{
+    grid-column: span 2;
+}
+
+#igual{
+    grid-row: span 2;
+    background-color: #d95555;
+    color: #2e0c0c;
+}
+
+#igual:hover{
+    background-color: #9f3535e8;
+    color: #340a0ae5;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: 0.5s ease-in;
+    scale:  0;
+}
+
+.fade-in.show {
+    opacity: 1;
+    scale: 1;
+}
